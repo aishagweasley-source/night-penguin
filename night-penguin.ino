@@ -1,4 +1,4 @@
-#include <Servo.h>
+#include <Servo.h>    // including the servo library
 
 // creates a servo object
 Servo servo1;  
@@ -27,15 +27,15 @@ pinMode(buttonPin2, INPUT_PULLUP);   //  so..  its LOW when being pressed and HI
 void loop() {
   // put your main code here, to run repeatedly:
 
-// b. reading the button pins
-int buttonState1 = digitalRead(buttonPin1);
+// b. reading the button pins --> if its pressed or not
+int buttonState1 = digitalRead(buttonPin1);      
 int buttonState2 = digitalRead(buttonPin2);
 
-Serial.println(buttonState1);
+Serial.println(buttonState1);     // these are just testing wether the buttons are workig or not
 Serial.println(buttonState2);
 delay(100);
 
-if (buttonState1 == LOW) {
+if (buttonState1 == LOW) {                      // b. turnign one of the Penguin's arm --> to turn on/off the switch by button
   for (pos = 0; pos <= 180; pos += 1) {
     servo1.write(pos);
     delay(15); }
@@ -47,7 +47,7 @@ if (buttonState1 == LOW) {
   } 
 
 
-if (buttonState2 == LOW) {
+if (buttonState2 == LOW) {                    // b. turnign one of the Penguin's arm --> to turn on/off the switch by button
   for (pos = 0; pos <= 180; pos += 1) {
     servo2.write(pos); 
     delay(15); }
